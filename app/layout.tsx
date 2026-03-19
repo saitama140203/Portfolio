@@ -14,7 +14,33 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Le The Phu - AI Engineer Portfolio",
-  description: "Portfolio of Le The Phu, AI Engineer specializing in Computer Vision and Deep Learning.",
+  description: "AI Engineer specializing in Computer Vision, Deep Learning, and MLOps. Building production-grade authentication systems and intelligent monitoring platforms.",
+  metadataBase: new URL("https://ltp-portfolio.vercel.app"),
+  openGraph: {
+    title: "Le The Phu - AI Engineer",
+    description: "AI Engineer specializing in Computer Vision, Deep Learning, and MLOps. Building production-grade systems with PyTorch, YOLO, and FastAPI.",
+    url: "https://ltp-portfolio.vercel.app",
+    siteName: "LTP.ai",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Le The Phu - AI Engineer Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Le The Phu - AI Engineer",
+    description: "AI Engineer specializing in Computer Vision, Deep Learning, and MLOps.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
