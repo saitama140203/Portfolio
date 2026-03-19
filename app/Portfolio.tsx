@@ -44,7 +44,7 @@ const translations = {
             programming: "Programming",
             aiml: "AI / ML",
             backendMlops: "Backend & MLOps",
-            programmingList: ["Python", "JavaScript", "Next.js"],
+            programmingList: ["Python", "JavaScript", "Next.js", "Svelte"],
             aimlList: ["PyTorch", "OpenCV", "HuggingFace", "LangChain", "YOLO"],
             backendMlopsList: ["FastAPI", "Docker", "Git", "Linux", "PostgreSQL", "SQL Server"],
         },
