@@ -834,62 +834,100 @@ const Skills = () => {
 const Experience = () => {
     const { t } = useI18n();
 
-    const statusColors = ["bg-green-500", "bg-yellow-500", "bg-blue-500"];
+    const nodeColors = ["bg-green-500", "bg-yellow-500", "bg-blue-500"];
+    const borderColors = ["border-l-green-500", "border-l-yellow-500", "border-l-blue-500"];
+    const glowColors = ["shadow-green-500/20", "shadow-yellow-500/20", "shadow-blue-500/20"];
     const statusLabels = ["active", "completed", "completed"];
 
     return (
         <section id="experience" className="py-24 px-6 container mx-auto relative">
             <AnimateIn direction="up">
-                <div className="mb-8">
+                <div className="mb-14">
                     <h3 className="text-2xl md:text-3xl font-bold font-mono flex items-center gap-2">
                         <span className="text-purple-500">&gt;</span> {t.experience.title}
                         <span className="inline-block w-2 h-5 bg-purple-500 animate-blink ml-1" />
                     </h3>
                     <p className="text-neutral-500 font-mono text-sm mt-2">
-                        total_positions: <span className="text-green-400">{t.experience.jobs.length}</span> | status: <span className="text-green-400">"employed"</span>
+                        total_positions: <span className="text-green-400">{t.experience.jobs.length}</span> | status: <span className="text-green-400">&quot;employed&quot;</span>
                     </p>
                 </div>
             </AnimateIn>
 
-            <div className="space-y-4 max-w-4xl">
-                {t.experience.jobs.map((job, idx) => (
-                    <AnimateIn key={idx} direction="left" delay={idx * 0.15}>
-                        <div className={`group bg-neutral-900/60 border border-neutral-800 border-l-2 ${idx === 0 ? "border-l-green-500" : idx === 1 ? "border-l-yellow-500" : "border-l-blue-500"
-                            } rounded-lg hover:bg-neutral-900 hover:border-neutral-700 transition-all duration-300 hover:shadow-lg hover:shadow-neutral-900/50 overflow-hidden`}>
-                            {/* Terminal header bar */}
-                            <div className="flex items-center gap-2 px-4 py-2.5 border-b border-neutral-800/50 bg-neutral-950/50">
-                                <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-                                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-                                <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-                                <span className="ml-2 text-[11px] font-mono text-neutral-600">{job.company.toLowerCase().replace(/\s/g, "_")}.log</span>
-                                <div className="ml-auto flex items-center gap-2">
-                                    <span className={`w-2 h-2 rounded-full ${statusColors[idx]}`} />
-                                    <span className="text-[11px] font-mono text-neutral-600">{statusLabels[idx]}</span>
-                                </div>
-                            </div>
+            {/* Timeline container */}
+            <div className="relative max-w-5xl mx-auto">
+                {/* Vertical timeline line */}
+                <div className="absolute left-6 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-[2px] bg-gradient-to-b from-green-500/50 via-yellow-500/30 to-blue-500/20" />
 
-                            <div className="p-5 font-mono">
-                                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
-                                    <h4 className="text-base font-bold text-green-400">{job.role}</h4>
-                                    <span className="text-xs text-neutral-500 bg-neutral-950 border border-neutral-800 px-2.5 py-1 rounded w-fit">
-                                        {job.period}
-                                    </span>
+                {t.experience.jobs.map((job, idx) => {
+                    const isLeft = idx % 2 === 0;
+                    const isFirst = idx === 0;
+
+                    return (
+                        <AnimateIn key={idx} direction={isLeft ? "left" : "right"} delay={idx * 0.15}>
+                            <div className={`relative flex items-start mb-12 last:mb-0 md:gap-8 ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}>
+                                {/* Node dot on timeline */}
+                                <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-10 flex flex-col items-center">
+                                    <div className={`relative w-4 h-4 rounded-full ${nodeColors[idx]} ${isFirst ? `shadow-lg ${glowColors[idx]}` : ""}`}>
+                                        {/* Pulse ring for active job */}
+                                        {isFirst && (
+                                            <div className={`absolute inset-0 rounded-full ${nodeColors[idx]} animate-ping opacity-40`} />
+                                        )}
+                                    </div>
                                 </div>
-                                <div className="flex items-center gap-2 mb-3 text-sm">
-                                    <span className="text-purple-400">{job.company}</span>
-                                    <span className="text-neutral-700">|</span>
-                                    <span className="text-neutral-500 flex items-center gap-1 text-xs">
-                                        <MapPin size={11} />
-                                        {job.location}
-                                    </span>
+
+                                {/* Spacer for left side on mobile */}
+                                <div className="w-14 shrink-0 md:hidden" />
+
+                                {/* Card - takes half width on desktop */}
+                                <div className={`flex-1 md:w-[calc(50%-2rem)] ${isLeft ? "md:pr-10" : "md:pl-10"}`}>
+                                    <div className={`group bg-neutral-900/60 border border-neutral-800 border-l-2 ${borderColors[idx]} rounded-lg hover:bg-neutral-900 hover:border-neutral-700 transition-all duration-300 hover:shadow-lg ${glowColors[idx]} overflow-hidden`}>
+                                        {/* Terminal header bar */}
+                                        <div className="flex items-center gap-2 px-4 py-2 border-b border-neutral-800/50 bg-neutral-950/50">
+                                            <div className="w-2 h-2 rounded-full bg-red-500/70" />
+                                            <div className="w-2 h-2 rounded-full bg-yellow-500/70" />
+                                            <div className="w-2 h-2 rounded-full bg-green-500/70" />
+                                            <span className="ml-1 text-[10px] font-mono text-neutral-600">{job.company.toLowerCase().replace(/\s/g, "_")}.log</span>
+                                            <div className="ml-auto flex items-center gap-1.5">
+                                                <span className={`w-1.5 h-1.5 rounded-full ${nodeColors[idx]}`} />
+                                                <span className="text-[10px] font-mono text-neutral-600">{statusLabels[idx]}</span>
+                                            </div>
+                                        </div>
+
+                                        <div className="p-4 font-mono">
+                                            {/* Period badge */}
+                                            <span className="inline-block text-[10px] text-neutral-500 bg-neutral-950 border border-neutral-800 px-2 py-0.5 rounded mb-3">
+                                                {job.period}
+                                            </span>
+
+                                            <h4 className="text-sm font-bold text-green-400 mb-1">{job.role}</h4>
+
+                                            <div className="flex items-center gap-1.5 mb-3 text-xs">
+                                                <span className="text-purple-400">{job.company}</span>
+                                                <span className="text-neutral-700">|</span>
+                                                <span className="text-neutral-500 flex items-center gap-1">
+                                                    <MapPin size={10} />
+                                                    {job.location}
+                                                </span>
+                                            </div>
+
+                                            <p className="text-neutral-500 leading-relaxed text-xs">
+                                                <span className="text-neutral-700">// </span>{job.description}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <p className="text-neutral-500 leading-relaxed text-xs md:text-sm">
-                                    <span className="text-neutral-700">// </span>{job.description}
-                                </p>
+
+                                {/* Empty spacer for the other side on desktop */}
+                                <div className="hidden md:block md:w-[calc(50%-2rem)]" />
                             </div>
-                        </div>
-                    </AnimateIn>
-                ))}
+                        </AnimateIn>
+                    );
+                })}
+
+                {/* Timeline end dot */}
+                <div className="absolute left-6 md:left-1/2 -translate-x-1/2 -bottom-2">
+                    <div className="w-2 h-2 rounded-full bg-neutral-700" />
+                </div>
             </div>
         </section>
     );
