@@ -80,34 +80,40 @@ const translations = {
         projects: {
             title: "Featured Projects",
             viewProject: "View Details",
+            viewMore: "Read more",
+            viewLess: "Close",
             list: [
                 {
                     name: "Luxury Auth",
-                    subtitle: "Counterfeit Detection System",
+                    subtitle: "Counterfeit Detection SDK & System",
+                    shortDescription: "Production-grade SDK for luxury goods authentication using YOLO detection and ViT/ConvNeXt classifiers with multi-brand support.",
                     description:
-                        "Fine-grained Computer Vision system to detect counterfeit luxury watches using Vision Transformer and ConvNeXt. Includes part-level classification and decision aggregation for authenticity scoring.",
-                    tech: ["ViT", "ConvNeXt", "PyTorch", "FastAPI"],
+                        "Production-grade SDK for luxury goods authentication. Built modular model registry with lazy-loading and caching for YOLO-based part detection + ViT/ConvNeXt fine-grained classifiers. Supports multi-brand (Rolex, LV, Omega) with part-level versioning (P00-P08). Integrated RedFrame IQA service (basic LIQE + advanced XGBoost mode) for image quality validation. Includes CLAHE/LoG preprocessing pipeline and Pydantic-validated schemas.\n\nKey components:\n- Model Package Registry: Dynamic model loading with lazy init and caching\n- Part-based versioning (P00-P08) with multiple model versions per part\n- RedFrame Service: Image quality assessment with basic (LIQE) and advanced (XGBoost) modes\n- Preprocessing pipeline: CLAHE, LoG filtering, brightness/contrast adjustment, white padding removal\n- Pydantic schemas for type-safe validation of detection and auth results",
+                    tech: ["PyTorch", "YOLO", "ViT", "ConvNeXt", "FastAPI", "Pydantic", "XGBoost"],
                 },
                 {
                     name: "EduScan",
-                    subtitle: "Automated Exam Grading System",
+                    subtitle: "AI-Powered Exam Grading Platform",
+                    shortDescription: "Full-stack automated exam grading system using YOLOv12 detection and OpenCV OMR for bubble recognition.",
                     description:
-                        "AI-powered system for automatic grading of multiple-choice exams from scanned or camera-captured images using YOLOv12 and OpenCV.",
-                    tech: ["FastAPI", "YOLOv12", "OpenCV", "PostgreSQL"],
+                        "Full-stack automated exam grading system. AI module uses YOLOv12 for answer sheet detection and OpenCV OMRChecker for bubble recognition and score calculation. Backend (FastAPI + PostgreSQL) handles exam management, real-time WebSocket SBD validation, and result analytics. Frontend built with TypeScript/Next.js featuring live camera capture, batch processing, and exportable grade reports.\n\nArchitecture:\n- AI Module: YOLOv12 answer sheet detection + OpenCV OMRChecker for bubble recognition\n- Backend: FastAPI + PostgreSQL with Alembic migrations, real-time WebSocket SBD validation\n- Frontend: TypeScript/Next.js with live camera capture and batch image processing\n- Deployment: Nginx reverse proxy + Docker containerization with manage-system.sh automation",
+                    tech: ["YOLOv12", "OpenCV", "FastAPI", "PostgreSQL", "TypeScript", "Next.js", "WebSocket"],
                 },
                 {
                     name: "AI Ad Planner",
-                    subtitle: "Advertising Campaign Platform",
+                    subtitle: "Advertising Analytics Platform",
+                    shortDescription: "Data warehouse and analytics platform for AI-driven advertising campaign planning with interactive dashboards.",
                     description:
-                        "Data warehouse and analytics platform for AI-driven advertising campaign planning and reporting with interactive dashboards.",
-                    tech: ["FastAPI", "Next.js", "SQL", "Data Pipeline"],
+                        "Data warehouse and analytics platform for AI-driven advertising campaign planning. Designed ETL pipelines for multi-source ad data ingestion, built interactive Next.js dashboards with drill-down reporting, and implemented SQL-based campaign performance analytics with automated KPI tracking.\n\nFeatures:\n- ETL pipelines for multi-source advertising data ingestion and transformation\n- Next.js interactive dashboards with drill-down campaign reporting\n- SQL-based campaign performance analytics with automated KPI tracking\n- Data visualization with custom charts and real-time metric updates",
+                    tech: ["FastAPI", "Next.js", "SQL", "Data Pipeline", "ETL"],
                 },
                 {
                     name: "AIoT Monitor",
-                    subtitle: "Edge Device Monitoring",
+                    subtitle: "Smart IoT Device Monitoring System",
+                    shortDescription: "Enterprise IoT monitoring platform with RBAC, connection proxy, and AI anomaly detection for smart solutions.",
                     description:
-                        "Real-time telemetry monitoring platform for IoT edge devices with WebSocket streaming and role-based admin dashboards.",
-                    tech: ["FastAPI", "WebSocket", "Docker", "JWT"],
+                        "Enterprise IoT monitoring platform acting as a secure intermediary between operators and hub devices for smart house/factory solutions. Features RBAC authentication (JWT/OAuth2), Apache Guacamole connection proxy (SSH/VNC/RDP) with full command logging, AI-powered anomaly detection using Scikit-learn/PyTorch, and multi-database architecture.\n\nSystem Architecture:\n- Backend: FastAPI with SQLAlchemy ORM, JWT/OAuth2 authentication, RBAC authorization\n- Frontend: Vue.js 3 admin dashboard with real-time system status monitoring\n- Connection Proxy: Apache Guacamole (SSH/VNC/RDP) with full command and session logging\n- AI Module: Anomaly detection in user behavior using Scikit-learn/PyTorch\n- Databases: PostgreSQL (users/config) + InfluxDB (time-series telemetry) + Elasticsearch (logs)\n- Deployment: Docker & Kubernetes containerized microservices",
+                    tech: ["FastAPI", "Vue.js", "PostgreSQL", "InfluxDB", "Docker", "Guacamole", "PyTorch"],
                 },
             ],
         },
@@ -176,34 +182,40 @@ const translations = {
         projects: {
             title: "Dự án Tiêu biểu",
             viewProject: "Xem Chi tiết",
+            viewMore: "Xem thêm",
+            viewLess: "Đóng",
             list: [
                 {
                     name: "Luxury Auth",
-                    subtitle: "Hệ thống Phát hiện Hàng giả",
+                    subtitle: "SDK & Hệ thống Phát hiện Hàng giả",
+                    shortDescription: "SDK cấp production cho xác thực hàng xa xỉ sử dụng YOLO detection và ViT/ConvNeXt classifier, hỗ trợ đa thương hiệu.",
                     description:
-                        "Hệ thống Computer Vision chi tiết (fine-grained) để phát hiện đồng hồ xa xỉ giả sử dụng Vision Transformer và ConvNeXt. Bao gồm phân loại từng bộ phận và tổng hợp quyết định cho điểm xác thực.",
-                    tech: ["ViT", "ConvNeXt", "PyTorch", "FastAPI"],
+                        "SDK cấp production cho xác thực hàng xa xỉ. Xây dựng model registry module hóa với lazy-loading và caching cho YOLO detection + ViT/ConvNeXt fine-grained classifier. Hỗ trợ đa thương hiệu (Rolex, LV, Omega) với part-level versioning (P00-P08). Tích hợp RedFrame IQA service (basic LIQE + advanced XGBoost) kiểm tra chất lượng ảnh. Bao gồm pipeline tiền xử lý CLAHE/LoG và schema validation bằng Pydantic.\n\nThành phần chính:\n- Model Package Registry: Tải model động với lazy init và caching\n- Part-based versioning (P00-P08) với nhiều phiên bản model mỗi part\n- RedFrame Service: Đánh giá chất lượng ảnh với basic (LIQE) và advanced (XGBoost)\n- Pipeline tiền xử lý: CLAHE, LoG filtering, điều chỉnh brightness/contrast, loại bỏ white padding\n- Pydantic schemas cho type-safe validation kết quả detection và authentication",
+                    tech: ["PyTorch", "YOLO", "ViT", "ConvNeXt", "FastAPI", "Pydantic", "XGBoost"],
                 },
                 {
                     name: "EduScan",
-                    subtitle: "Hệ thống Chấm thi Tự động",
+                    subtitle: "Nền tảng Chấm thi AI",
+                    shortDescription: "Hệ thống chấm thi tự động full-stack sử dụng YOLOv12 phát hiện phiếu và OpenCV OMR nhận dạng bong bóng.",
                     description:
-                        "Hệ thống tự động chấm điểm bài thi trắc nghiệm ứng dụng YOLOv12 và OpenCV để căn chỉnh và tính điểm từ ảnh quét.",
-                    tech: ["FastAPI", "YOLOv12", "OpenCV", "PostgreSQL"],
+                        "Hệ thống chấm thi tự động full-stack. Module AI dùng YOLOv12 phát hiện phiếu trả lời và OpenCV OMRChecker nhận dạng bong bóng, tính điểm. Backend (FastAPI + PostgreSQL) quản lý đề thi, xác thực SBD real-time qua WebSocket, và phân tích kết quả. Frontend TypeScript/Next.js hỗ trợ chụp camera trực tiếp, xử lý hàng loạt, và xuất báo cáo điểm.\n\nKiến trúc:\n- Module AI: YOLOv12 phát hiện phiếu trả lời + OpenCV OMRChecker nhận dạng bong bóng\n- Backend: FastAPI + PostgreSQL với Alembic migrations, xác thực SBD real-time qua WebSocket\n- Frontend: TypeScript/Next.js với chụp camera trực tiếp và xử lý ảnh hàng loạt\n- Triển khai: Nginx reverse proxy + Docker containerization với manage-system.sh tự động hóa",
+                    tech: ["YOLOv12", "OpenCV", "FastAPI", "PostgreSQL", "TypeScript", "Next.js", "WebSocket"],
                 },
                 {
                     name: "AI Ad Planner",
-                    subtitle: "Nền tảng Chiến dịch Quảng cáo",
+                    subtitle: "Nền tảng Phân tích Quảng cáo",
+                    shortDescription: "Kho dữ liệu và nền tảng phân tích cho lập kế hoạch chiến dịch quảng cáo AI với dashboard tương tác.",
                     description:
-                        "Kho dữ liệu và nền tảng phân tích phục vụ lập kế hoạch và báo cáo chiến dịch quảng cáo được AI tối ưu.",
-                    tech: ["FastAPI", "Next.js", "SQL", "Data Pipeline"],
+                        "Kho dữ liệu và nền tảng phân tích cho lập kế hoạch chiến dịch quảng cáo AI. Thiết kế ETL pipeline thu thập dữ liệu đa nguồn, xây dựng dashboard Next.js tương tác với báo cáo drill-down, và triển khai phân tích hiệu suất chiến dịch dựa trên SQL với tự động theo dõi KPI.\n\nTính năng:\n- ETL pipeline thu thập và chuyển đổi dữ liệu quảng cáo đa nguồn\n- Dashboard Next.js tương tác với báo cáo drill-down chiến dịch\n- Phân tích hiệu suất chiến dịch dựa trên SQL với tự động theo dõi KPI\n- Trực quan hóa dữ liệu với charts tùy chỉnh và cập nhật metric real-time",
+                    tech: ["FastAPI", "Next.js", "SQL", "Data Pipeline", "ETL"],
                 },
                 {
                     name: "AIoT Monitor",
-                    subtitle: "Giám sát Thiết bị Biên",
+                    subtitle: "Hệ thống Giám sát IoT Thông minh",
+                    shortDescription: "Nền tảng giám sát IoT doanh nghiệp với RBAC, proxy kết nối, và AI phát hiện bất thường cho giải pháp thông minh.",
                     description:
-                        "Nền tảng giám sát thông số từ xa theo thời gian thực cho thiết bị IoT ứng dụng giao thức WebSocket.",
-                    tech: ["FastAPI", "WebSocket", "Docker", "JWT"],
+                        "Nền tảng giám sát IoT doanh nghiệp, đóng vai trò trung gian bảo mật giữa operator và hub device cho giải pháp smart house/factory.\n\nKiến trúc hệ thống:\n- Backend: FastAPI với SQLAlchemy ORM, xác thực JWT/OAuth2, phân quyền RBAC\n- Frontend: Vue.js 3 admin dashboard giám sát trạng thái hệ thống real-time\n- Connection Proxy: Apache Guacamole (SSH/VNC/RDP) ghi log toàn bộ lệnh và session\n- Module AI: Phát hiện bất thường hành vi người dùng bằng Scikit-learn/PyTorch\n- Cơ sở dữ liệu: PostgreSQL (users/config) + InfluxDB (time-series telemetry) + Elasticsearch (logs)\n- Triển khai: Docker & Kubernetes containerized microservices",
+                    tech: ["FastAPI", "Vue.js", "PostgreSQL", "InfluxDB", "Docker", "Guacamole", "PyTorch"],
                 },
             ],
         },
@@ -883,65 +895,172 @@ const Experience = () => {
     );
 };
 
+const ProjectDetailModal = ({ project, onClose, borderColor }: { project: any; onClose: () => void; borderColor: string }) => {
+    const { t } = useI18n();
+    // Parse description with newline sections
+    const descParts = project.description.split("\n\n");
+
+    return (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={onClose}>
+            <div className="absolute inset-0 bg-black/70 backdrop-blur-sm animate-fadeIn" />
+            <div
+                className={`relative z-10 w-full max-w-3xl max-h-[85vh] bg-neutral-900 border border-neutral-700 border-l-2 ${borderColor} rounded-lg overflow-hidden shadow-2xl shadow-purple-500/10 animate-modalSlideUp`}
+                onClick={(e) => e.stopPropagation()}
+            >
+                {/* Terminal header */}
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-neutral-800 bg-neutral-950/80">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+                    <span className="ml-2 text-[11px] font-mono text-neutral-600">{project.name.toLowerCase().replace(/\s/g, "_")}/README.md</span>
+                    <button onClick={onClose} className="ml-auto p-1 rounded hover:bg-neutral-800 transition-colors text-neutral-400 hover:text-white">
+                        <X size={16} />
+                    </button>
+                </div>
+
+                {/* Content */}
+                <div className="overflow-y-auto max-h-[calc(85vh-50px)] p-6 font-mono">
+                    <div className="flex items-center gap-3 mb-1">
+                        <h3 className="text-xl font-bold text-green-400">{project.name}</h3>
+                    </div>
+                    <p className="text-sm text-purple-400/80 mb-5">{project.subtitle}</p>
+
+                    {/* Description sections */}
+                    <div className="space-y-4">
+                        {descParts.map((part: string, i: number) => {
+                            // Check if section has a header (e.g. "Key components:")
+                            const lines = part.split("\n");
+                            const isListSection = lines.length > 1 && lines.slice(1).every((l: string) => l.startsWith("- "));
+
+                            if (isListSection) {
+                                return (
+                                    <div key={i}>
+                                        <p className="text-sm text-neutral-300 font-semibold mb-2">
+                                            <span className="text-neutral-600">## </span>{lines[0]}
+                                        </p>
+                                        <div className="space-y-1.5 pl-4">
+                                            {lines.slice(1).map((line: string, j: number) => (
+                                                <p key={j} className="text-xs text-neutral-400 leading-relaxed">
+                                                    <span className="text-green-500/70">  - </span>{line.replace(/^- /, "")}
+                                                </p>
+                                            ))}
+                                        </div>
+                                    </div>
+                                );
+                            }
+
+                            return (
+                                <p key={i} className="text-sm text-neutral-400 leading-relaxed">
+                                    <span className="text-neutral-600">// </span>{part}
+                                </p>
+                            );
+                        })}
+                    </div>
+
+                    {/* Tech stack */}
+                    <div className="mt-6 pt-4 border-t border-neutral-800">
+                        <p className="text-xs text-neutral-600 mb-3">stack:</p>
+                        <div className="flex flex-wrap gap-2">
+                            {project.tech.map((tag: string, i: number) => (
+                                <span
+                                    key={i}
+                                    className="text-[11px] font-mono text-green-300/80 bg-green-500/10 border border-green-500/20 px-2.5 py-1 rounded"
+                                >
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const Projects = () => {
     const { t } = useI18n();
+    const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
     const projectColors = ["border-l-purple-500", "border-l-green-500", "border-l-cyan-500", "border-l-amber-500"];
     const dotColors = ["bg-purple-500", "bg-green-500", "bg-cyan-500", "bg-amber-500"];
+    const textAccents = ["text-purple-400", "text-green-400", "text-cyan-400", "text-amber-400"];
 
     return (
-        <section id="projects" className="py-24 px-6 container mx-auto relative">
-            <AnimateIn direction="up">
-                <div className="mb-8">
-                    <h3 className="text-2xl md:text-3xl font-bold font-mono flex items-center gap-2">
-                        <span className="text-purple-500">&gt;</span> {t.projects.title}
-                        <span className="inline-block w-2 h-5 bg-purple-500 animate-blink ml-1" />
-                    </h3>
-                    <p className="text-neutral-500 font-mono text-sm mt-2">
-                        total_projects: <span className="text-green-400">{t.projects.list.length}</span> | type: <span className="text-blue-400">"production"</span>
-                    </p>
-                </div>
-            </AnimateIn>
+        <>
+            <section id="projects" className="py-24 px-6 container mx-auto relative">
+                <AnimateIn direction="up">
+                    <div className="mb-8">
+                        <h3 className="text-2xl md:text-3xl font-bold font-mono flex items-center gap-2">
+                            <span className="text-purple-500">&gt;</span> {t.projects.title}
+                            <span className="inline-block w-2 h-5 bg-purple-500 animate-blink ml-1" />
+                        </h3>
+                        <p className="text-neutral-500 font-mono text-sm mt-2">
+                            total_projects: <span className="text-green-400">{t.projects.list.length}</span> | type: <span className="text-blue-400">"production"</span>
+                        </p>
+                    </div>
+                </AnimateIn>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {t.projects.list.map((project, idx) => (
-                    <AnimateIn key={idx} direction="up" delay={idx * 0.1}>
-                        <div className={`group bg-neutral-900/60 border border-neutral-800 border-l-2 ${projectColors[idx]} rounded-lg hover:bg-neutral-900 hover:border-neutral-700 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg overflow-hidden h-full flex flex-col`}>
-                            {/* Terminal header bar */}
-                            <div className="flex items-center gap-2 px-4 py-2.5 border-b border-neutral-800/50 bg-neutral-950/50">
-                                <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-                                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-                                <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-                                <span className="ml-2 text-[11px] font-mono text-neutral-600">{project.name.toLowerCase().replace(/\s/g, "_")}/README.md</span>
-                                <span className="ml-auto text-[11px] font-mono text-neutral-700">0{idx + 1}</span>
-                            </div>
-
-                            <div className="p-5 font-mono flex-grow flex flex-col">
-                                <div className="flex items-center gap-3 mb-2">
-                                    <div className={`w-2 h-2 rounded-full ${dotColors[idx]} shrink-0`} />
-                                    <h4 className="text-lg font-bold text-neutral-100 group-hover:text-green-400 transition-colors">{project.name}</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {t.projects.list.map((project, idx) => (
+                        <AnimateIn key={idx} direction="up" delay={idx * 0.1}>
+                            <div className={`group bg-neutral-900/60 border border-neutral-800 border-l-2 ${projectColors[idx]} rounded-lg hover:bg-neutral-900 hover:border-neutral-700 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg overflow-hidden h-full flex flex-col`}>
+                                {/* Terminal header bar */}
+                                <div className="flex items-center gap-2 px-4 py-2.5 border-b border-neutral-800/50 bg-neutral-950/50">
+                                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+                                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+                                    <span className="ml-2 text-[11px] font-mono text-neutral-600">{project.name.toLowerCase().replace(/\s/g, "_")}/README.md</span>
+                                    <span className="ml-auto text-[11px] font-mono text-neutral-700">0{idx + 1}</span>
                                 </div>
-                                <p className="text-xs text-purple-400/80 mb-3 pl-5">{project.subtitle}</p>
-                                <p className="text-neutral-500 text-xs mb-5 leading-relaxed pl-5 flex-grow">
-                                    <span className="text-neutral-700">// </span>{project.description}
-                                </p>
 
-                                <div className="flex flex-wrap gap-2 pl-5">
-                                    {project.tech.map((tag, i) => (
-                                        <span
-                                            key={i}
-                                            className="text-[11px] font-mono text-green-300/80 bg-green-500/10 border border-green-500/20 px-2 py-0.5 rounded hover:bg-green-500/20 transition-colors"
+                                <div className="p-5 font-mono flex-grow flex flex-col">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className={`w-2 h-2 rounded-full ${dotColors[idx]} shrink-0`} />
+                                        <h4 className="text-lg font-bold text-neutral-100 group-hover:text-green-400 transition-colors">{project.name}</h4>
+                                    </div>
+                                    <p className="text-xs text-purple-400/80 mb-3 pl-5">{project.subtitle}</p>
+                                    <p className="text-neutral-500 text-xs mb-4 leading-relaxed pl-5 flex-grow">
+                                        <span className="text-neutral-700">// </span>{project.shortDescription}
+                                    </p>
+
+                                    <div className="flex items-center justify-between pl-5">
+                                        <div className="flex flex-wrap gap-2">
+                                            {project.tech.slice(0, 4).map((tag, i) => (
+                                                <span
+                                                    key={i}
+                                                    className="text-[11px] font-mono text-green-300/80 bg-green-500/10 border border-green-500/20 px-2 py-0.5 rounded"
+                                                >
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                            {project.tech.length > 4 && (
+                                                <span className="text-[11px] font-mono text-neutral-600">+{project.tech.length - 4}</span>
+                                            )}
+                                        </div>
+                                        <button
+                                            onClick={() => setSelectedProject(idx)}
+                                            className={`text-xs ${textAccents[idx]} hover:underline underline-offset-4 transition-colors flex items-center gap-1`}
                                         >
-                                            {tag}
-                                        </span>
-                                    ))}
+                                            {t.projects.viewMore}
+                                            <ChevronDown size={12} className="-rotate-90" />
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </AnimateIn>
-                ))}
-            </div>
-        </section>
+                        </AnimateIn>
+                    ))}
+                </div>
+            </section>
+
+            {/* Project detail modal */}
+            {selectedProject !== null && (
+                <ProjectDetailModal
+                    project={t.projects.list[selectedProject]}
+                    borderColor={projectColors[selectedProject]}
+                    onClose={() => setSelectedProject(null)}
+                />
+            )}
+        </>
     );
 };
 
