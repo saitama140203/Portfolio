@@ -52,12 +52,22 @@ const translations = {
             title: "Experience",
             jobs: [
                 {
+                    company: "ESTEC",
+                    period: "05/2026 – Present",
+                    role: "AI Engineer",
+                    location: "Da Nang, Vietnam",
+                    description:
+                        "Developing industrial AI/ML solutions, focusing on process optimization, predictive maintenance, and computer vision applications for manufacturing and automation systems.",
+                    url: "https://biendongco.vn/",
+                },
+                {
                     company: "Rikai Technology",
-                    period: "09/2025 – Present",
+                    period: "09/2025 – 05/2026",
                     role: "AI Engineer",
                     location: "Da Nang, Vietnam",
                     description:
                         "Developed fine-grained Computer Vision systems for counterfeit luxury watch detection using ViT and ConvNeXt. Built AI Ad Planner data pipelines and interactive Next.js dashboards. Focused on model optimization and real-time backend services.",
+                    url: "",
                 },
                 {
                     company: "SafeHorizons",
@@ -66,6 +76,7 @@ const translations = {
                     location: "Da Nang, Vietnam",
                     description:
                         "Developed real-time IoT monitoring dashboards with FastAPI and WebSockets. Implemented edge device telemetry and secure RBAC access portals.",
+                    url: "",
                 },
                 {
                     company: "FPT Software",
@@ -74,6 +85,7 @@ const translations = {
                     location: "Da Nang, Vietnam",
                     description:
                         "Created an AI-driven meeting summarization pipeline with Whisper and Transformer models. Optimized inference latency with quantization and batching.",
+                    url: "",
                 },
             ],
         },
@@ -154,12 +166,22 @@ const translations = {
             title: "Kinh nghiệm Làm việc",
             jobs: [
                 {
+                    company: "ESTEC",
+                    period: "05/2026 – Hiện tại",
+                    role: "Kỹ sư AI",
+                    location: "Đà Nẵng, Việt Nam",
+                    description:
+                        "Phát triển các giải pháp AI/ML công nghiệp, tập trung vào tối ưu hóa quy trình, bảo trì dự đoán và ứng dụng thị giác máy tính cho hệ thống sản xuất và tự động hóa.",
+                    url: "https://biendongco.vn/",
+                },
+                {
                     company: "Rikai Technology",
-                    period: "09/2025 – Hiện tại",
+                    period: "09/2025 – 05/2026",
                     role: "Kỹ sư AI",
                     location: "Đà Nẵng, Việt Nam",
                     description:
                         "Phát triển hệ thống nhận diện chi tiết (fine-grained) để phát hiện đồng hồ xa xỉ giả bằng ViT và ConvNeXt. Xây dựng data pipeline và dashboard Next.js tương tác cho hệ thống AI Ad Planner.",
+                    url: "",
                 },
                 {
                     company: "SafeHorizons",
@@ -168,6 +190,7 @@ const translations = {
                     location: "Đà Nẵng, Việt Nam",
                     description:
                         "Phát triển dashboard giám sát IoT theo thời gian thực sử dụng FastAPI và WebSockets. Xây dựng luồng dữ liệu truyền xa biên và cổng truy cập an toàn.",
+                    url: "",
                 },
                 {
                     company: "FPT Software",
@@ -176,6 +199,7 @@ const translations = {
                     location: "Đà Nẵng, Việt Nam",
                     description:
                         "Xây dựng pipeline tóm tắt cuộc họp ứng dụng AI, sử dụng mô hình Whisper và Transformer. Tối ưu độ trễ thông qua lượng tử hóa (quantization) và gộp lô (batching).",
+                    url: "",
                 },
             ],
         },
@@ -834,10 +858,10 @@ const Skills = () => {
 const Experience = () => {
     const { t } = useI18n();
 
-    const nodeColors = ["bg-green-500", "bg-yellow-500", "bg-blue-500"];
-    const borderColors = ["border-l-green-500", "border-l-yellow-500", "border-l-blue-500"];
-    const glowColors = ["shadow-green-500/20", "shadow-yellow-500/20", "shadow-blue-500/20"];
-    const statusLabels = ["active", "completed", "completed"];
+    const nodeColors = ["bg-green-500", "bg-yellow-500", "bg-blue-500", "bg-purple-500"];
+    const borderColors = ["border-l-green-500", "border-l-yellow-500", "border-l-blue-500", "border-l-purple-500"];
+    const glowColors = ["shadow-green-500/20", "shadow-yellow-500/20", "shadow-blue-500/20", "shadow-purple-500/20"];
+    const statusLabels = ["active", "completed", "completed", "completed"];
 
     return (
         <section id="experience" className="py-24 px-6 container mx-auto relative">
@@ -902,7 +926,19 @@ const Experience = () => {
                                             <h4 className="text-sm font-bold text-green-400 mb-1">{job.role}</h4>
 
                                             <div className="flex items-center gap-1.5 mb-3 text-xs">
-                                                <span className="text-purple-400">{job.company}</span>
+                                                {job.url ? (
+                                                    <a
+                                                        href={job.url}
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                        className="text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-1 hover:underline"
+                                                    >
+                                                        {job.company}
+                                                        <ExternalLink size={10} />
+                                                    </a>
+                                                ) : (
+                                                    <span className="text-purple-400">{job.company}</span>
+                                                )}
                                                 <span className="text-neutral-700">|</span>
                                                 <span className="text-neutral-500 flex items-center gap-1">
                                                     <MapPin size={10} />
